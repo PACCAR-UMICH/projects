@@ -36,18 +36,18 @@ def exercise_02(dna_sequence: str, motif: str):
     pass
 
 def exercise_03(rna_sequence):
-     """Translates RNA sequence into a protein.
+    """Translates RNA sequence into a protein.
 
-     This function translates an RNA sequence into a protein using the RNA codon table.
-     The translation starts at the start codon (AUG) and ends at the first stop codon (UAA, UAG, UGA).
-     If the RNA sequence does not start with the start codon or end with a stop codon, the function will still translate the sequence but the resulting protein may not be functional.
+    This function translates an RNA sequence into a protein using the RNA codon table.
+    The translation starts at the start codon (AUG) and ends at the first stop codon (UAA, UAG, UGA).
+    If the RNA sequence does not start with the start codon or end with a stop codon, the function will still translate the sequence but the resulting protein may not be functional.
 
-     Parameters:
-     rna_sequence (str): The RNA sequence to translate.
+    Parameters:
+    rna_sequence (str): The RNA sequence to translate.
 
-     Returns:
-     protein (str): The translated protein sequence.
-     """
+    Returns:
+    protein (str): The translated protein sequence.
+    """
     codon_table = {
         'AUG': 'M', 'UUU': 'F', 'UUC': 'F', 'UUA': 'L', 'UUG': 'L',
         'UCU': 'S', 'UCC': 'S', 'UCA': 'S', 'UCG': 'S', 'UAU': 'Y',
