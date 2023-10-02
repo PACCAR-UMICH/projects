@@ -113,16 +113,16 @@ if __name__ == "__main__":
     positions = exercise_02(dna_sequence, motif)
     print(f"The motif '{motif}' occurs at positions: {positions}")
     # Expected output
-    print("Expected output: [1, 5, 9, 13, 17]")
+    print("Expected output: [0, 4, 8, 12, 16]")
     print()
 
 
     # Testing exercise_03
-    rna_sequence = "AUGUUUUCUUAAAGUGGAUACCCACAGUGGACCAUGAAGGAAUGUGUUAUAA"
+    rna_sequence = "AUGUUUUCUUACAAGUGGAUACCCACAGUGGACCAUGAAGGAUAA"
     protein_sequence = exercise_03(rna_sequence)
     print(f"The protein sequence is: {protein_sequence}")
     # Expected output
-    print("Expected output: MFTKVDTPMRMV")
+    print("Expected output: MFSYKWIPTVDHEG")
     print()
 
     # Testing exercise_04
@@ -131,7 +131,7 @@ if __name__ == "__main__":
     hamming_distance = exercise_04(dna_sequence1, dna_sequence2)
     print(f"The Hamming distance is: {hamming_distance}")
     # Expected output
-    print("Expected output: 2")
+    print("Expected output: 1")
     print()
 
     # Testing exercise_05
