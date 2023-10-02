@@ -1,4 +1,10 @@
+"""Project_01
+
+To run, please type `python exercises.py` in your terminal.
+"""
+
 import random
+
 
 def exercise_01(dna_sequence: str):
     """Calculating GC Content
@@ -10,12 +16,9 @@ def exercise_01(dna_sequence: str):
     dna_sequence (str): The DNA sequence to calculate the GC content for.
 
     Returns:
-    float: The GC content of the DNA sequence as a percentage.
+    gc_percentage (float): The GC content of the DNA sequence as a percentage.
     """
-    gc_content = dna_sequence.count('G') + dna_sequence.count('C')
-    total_length = len(dna_sequence)
-    gc_percentage = (gc_content / total_length) * 100
-    return gc_percentage
+    pass
 
 
 def exercise_02(dna_sequence: str, motif: str):
@@ -28,16 +31,23 @@ def exercise_02(dna_sequence: str, motif: str):
     motif (str): The motif to find within the DNA sequence.
 
     Returns:
-    list: A list of positions where the motif occurs within the DNA sequence.
+    list_of_pos (list): A list of positions where the motif occurs within the DNA sequence.
     """
-    positions = []
-    motif_length = len(motif)
-    for i in range(len(dna_sequence) - motif_length + 1):
-        if dna_sequence[i:i+motif_length] == motif:
-            positions.append(i)
-        return positions
+    pass
 
 def exercise_03(rna_sequence):
+     """Translates RNA sequence into a protein.
+
+     This function translates an RNA sequence into a protein using the RNA codon table.
+     The translation starts at the start codon (AUG) and ends at the first stop codon (UAA, UAG, UGA).
+     If the RNA sequence does not start with the start codon or end with a stop codon, the function will still translate the sequence but the resulting protein may not be functional.
+
+     Parameters:
+     rna_sequence (str): The RNA sequence to translate.
+
+     Returns:
+     protein (str): The translated protein sequence.
+     """
     codon_table = {
         'AUG': 'M', 'UUU': 'F', 'UUC': 'F', 'UUA': 'L', 'UUG': 'L',
         'UCU': 'S', 'UCC': 'S', 'UCA': 'S', 'UCG': 'S', 'UAU': 'Y',
@@ -53,13 +63,7 @@ def exercise_03(rna_sequence):
         'GCG': 'A', 'GAU': 'D', 'GAC': 'D', 'GAA': 'E', 'GAG': 'E',
         'GGU': 'G', 'GGC': 'G', 'GGA': 'G', 'GGG': 'G'
     }
-    protein = ""
-    for i in range(0, len(rna_sequence), 3):
-        codon = rna_sequence[i:i+3]
-        if codon_table[codon] == 'Stop':
-            break
-        protein += codon_table[codon]
-    return protein
+    pass
 
 def exercise_04(dna_sequence1: str, dna_sequence2: str):
     """Calculating Hamming Distance between DNA sequences.
@@ -77,11 +81,7 @@ def exercise_04(dna_sequence1: str, dna_sequence2: str):
     Note:
     The two DNA sequences must be of the same length.
     """
-    distance = 0
-    for el1, el2 in zip(dna_sequence1, dna_sequence2):
-        if el1 != el2:
-            distance += 1
-    return distance
+    pass
 
 def exercise_05(dna_sequence: str, mutation_probability: float):
     """Simulates random mutations in a DNA sequence.
@@ -93,21 +93,52 @@ def exercise_05(dna_sequence: str, mutation_probability: float):
     mutation_probability (float): The probability of a mutation at each position.
 
     Returns:
-    str: The mutated DNA sequence.
+    mutated_sequence (str): The mutated DNA sequence.
     """
-    nucleotides = ['A', 'T', 'C', 'G']
-    mutated_sequence = ""
-    for nucleotide in dna_sequence:
-        if random.random() < mutation_probability:
-            mutated_sequence += random.choice([nt for nt in nucleotides if nt != nucleotide])
-        else:
-            mutated_sequence += nucleotide
-    return mutated_sequence
+    pass
 
 
 if __name__ == "__main__":
-    dna_sequence = "ATCGAATCG"
-    gc_content = exercise_01(dna_sequence)
+    # Testing exercise_01
+    dna_sequence = "AGCTAGCTAGCTAGCTAGCT"
+    gc_percentage = exercise_01(dna_sequence)
+    print(f"The GC content is: {gc_percentage}%")
+    # Expected output
+    print("Expected output: 50%")
+    print()
 
-    rna_sequence = "AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA"
+    # Testing exercise_02
+    dna_sequence = "AGCTAGCTAGCTAGCTAGCT"
+    motif = "AGCT"
+    positions = exercise_02(dna_sequence, motif)
+    print(f"The motif '{motif}' occurs at positions: {positions}")
+    # Expected output
+    print("Expected output: [1, 5, 9, 13, 17]")
+    print()
+
+
+    # Testing exercise_03
+    rna_sequence = "AUGUUUUCUUAAAGUGGAUACCCACAGUGGACCAUGAAGGAAUGUGUUAUAA"
     protein_sequence = exercise_03(rna_sequence)
+    print(f"The protein sequence is: {protein_sequence}")
+    # Expected output
+    print("Expected output: MFTKVDTPMRMV")
+    print()
+
+    # Testing exercise_04
+    dna_sequence1 = "AGCTAGCTAGCTAGCTAGCT"
+    dna_sequence2 = "AGCTAGCTAGGTAGCTAGCT"
+    hamming_distance = exercise_04(dna_sequence1, dna_sequence2)
+    print(f"The Hamming distance is: {hamming_distance}")
+    # Expected output
+    print("Expected output: 2")
+    print()
+
+    # Testing exercise_05
+    dna_sequence = "ATCGAATCG"
+    mutation_probability = 0.1
+    mutated_sequence = exercise_05(dna_sequence, mutation_probability)
+    print(f"The mutated DNA sequence is: {mutated_sequence}")
+    # Example output (since it is random)
+    print("Example output: ATCGAATGG")
+    print()
